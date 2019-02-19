@@ -1,0 +1,19 @@
+{
+  "name": "create-static-app",
+  "version": "1.0.0",
+  "description": "Tool for bootstrapping modern stack project for creating static web apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "Richard van der Dys",
+  "license": "MIT",
+  "dependencies": {
+    "create-react-app": "^2.1.5",
+    "yargs": "^13.2.1"
+  },
+  "devDependencies": {
+    "ava": "^1.2.1",
+    "prettier": "^1.16.4"
+  }
+}
