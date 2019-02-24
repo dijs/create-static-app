@@ -17,16 +17,17 @@ const log = (...args) => {
 
 log('Project name', projectName);
 
+const projectDir = path.resolve('.', projectName);
+
 function addDeps() {
-  const packageDir = path.resolve('.', projectName);
-  const packagePath = path.join(packageDir, 'package.json');
   log('Found package @', packagePath);
+  const packagePath = path.join(projectDir, 'package.json');
   const package = modifyPackage(require(packagePath), argv);
   if (argv.sw) {
     log('Copying service worker config');
     fs.copyFileSync(
       path.join(__dirname, 'sw-precache-config.js'),
-      path.join(packageDir, 'sw-precache-config.js')
+      path.join(projectDir, 'sw-precache-config.js')
     );
   }
   log('Writing package changes');
@@ -38,7 +39,7 @@ function install() {
   log('Installing deps using', command);
   const installer = spawn(command, ['install'], {
     stdio: 'inherit',
-    cwd: path.join(__dirname, projectName)
+    cwd: projectDir
   });
   installer.on('close', () => {
     console.log(
