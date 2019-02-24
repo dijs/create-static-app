@@ -14,6 +14,10 @@ const argv = require('yargs')
     describe: 'Setup using yarn instead of npm',
     default: false
   })
+  .option('verbose', {
+    alias: 'v',
+    default: false
+  })
   .option('service-worker', {
     alias: 'sw',
     describe:
