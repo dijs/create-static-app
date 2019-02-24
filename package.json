@@ -1,8 +1,11 @@
 {
   "name": "create-static-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tool for bootstrapping modern stack project for creating static web apps",
-  "main": "index.js",
+  "repository": "dijs/create-static-app",
+  "bin": {
+    "create-static-app": "./index.js"
+  },
   "scripts": {
     "test": "ava"
   },
