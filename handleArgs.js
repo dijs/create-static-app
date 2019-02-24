@@ -2,6 +2,7 @@ const argv = require('yargs')
   .usage('create-static-app <project-directory>')
   .option('react', {
     alias: 'r',
+    type: 'boolean',
     describe: 'Create a React project',
     default: true
   })
@@ -11,15 +12,18 @@ const argv = require('yargs')
   })
   .option('yarn', {
     alias: 'y',
+    type: 'boolean',
     describe: 'Setup using yarn instead of npm',
     default: false
   })
   .option('verbose', {
     alias: 'v',
+    type: 'boolean',
     default: false
   })
   .option('service-worker', {
     alias: 'sw',
+    type: 'boolean',
     describe:
       'Setup app with service worker already configured for static assets',
     default: true

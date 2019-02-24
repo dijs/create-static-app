@@ -1,6 +1,6 @@
 {
   "name": "create-static-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Tool for bootstrapping modern stack project for creating static web apps",
   "repository": "dijs/create-static-app",
   "bin": {

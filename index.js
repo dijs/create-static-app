@@ -18,14 +18,15 @@ const log = (...args) => {
 log('Project name', projectName);
 
 function addDeps() {
-  const packagePath = path.join(__dirname, projectName, 'package.json');
+  const packageDir = path.resolve('.', projectName);
+  const packagePath = path.join(packageDir, 'package.json');
   log('Found package @', packagePath);
   const package = modifyPackage(require(packagePath), argv);
   if (argv.sw) {
     log('Copying service worker config');
     fs.copyFileSync(
-      './sw-precache-config.js',
-      path.join(__dirname, projectName, 'sw-precache-config.js')
+      path.join(__dirname, 'sw-precache-config.js'),
+      path.join(packageDir, 'sw-precache-config.js')
     );
   }
   log('Writing package changes');
@@ -52,7 +53,7 @@ function createApp() {
   const craPath = require.resolve('create-react-app');
   const cra = spawn(craPath, [projectName], { stdio: 'inherit' });
   cra.on('close', () => {
-    console.log('Created project.');
+    log('Created project.');
     addDeps();
     install();
   });
