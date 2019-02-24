@@ -20,8 +20,8 @@ log('Project name', projectName);
 const projectDir = path.resolve('.', projectName);
 
 function addDeps() {
-  log('Found package @', packagePath);
   const packagePath = path.join(projectDir, 'package.json');
+  log('Found package @', packagePath);
   const package = modifyPackage(require(packagePath), argv);
   if (argv.sw) {
     log('Copying service worker config');
